@@ -22,8 +22,7 @@ lr = LinearRegression()
 lr.fit(X_train, y_train)
 
 y_pred = lr.predict(X_test)
-y_pred_train = lr.predict(X_train)
-# print(y_train - y_pred_train)
+print(y_pred - y_test)
 
 plt.scatter(X_train, y_train, color='red')
 plt.plot(X_train, lr.predict(X_train), color='blue')

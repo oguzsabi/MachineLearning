@@ -25,7 +25,7 @@ X[:, 1:3] = imputer.fit(X[:, 1:3]).transform(X[:, 1:3])
 # Encoding categorical data
 
 ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
-X = np.array(ct.fit_transform(X)) # independent values must be numpy array for later use
+X = np.array(ct.fit_transform(X))  # independent values must be numpy array for later use
 # print(X)
 
 le = LabelEncoder()
