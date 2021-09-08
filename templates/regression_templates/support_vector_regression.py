@@ -1,8 +1,9 @@
+import math
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import r2_score
+from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 from sklearn.svm import SVR
 from sklearn.preprocessing import StandardScaler
 
@@ -38,4 +39,17 @@ print(
     )
 )
 
-print(f'R2 Score: {r2_score(y_test, y_pred)}')
+r2 = r2_score(y_test, y_pred)
+print(f'R2 Score: {r2}')
+
+adj_r2 = 1 - (1 - r2) * (len(X_train) - 1) / (len(X_train) - len(X_train[0]) - 1)
+print(f'Adjusted R2 Score: {adj_r2}')
+
+mse = mean_squared_error(y_test, y_pred)
+print(f'MSE: {mse}')
+
+rmse = math.sqrt(mse)
+print(f'RMSE: {rmse}')
+
+mae = mean_absolute_error(y_test, y_pred)
+print(f'MAE: {mae}')
