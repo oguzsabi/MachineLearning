@@ -1,12 +1,11 @@
 import numpy as np
 import pandas as pd
-import tensorflow as tf
 from sklearn.compose import ColumnTransformer
 from sklearn.metrics import confusion_matrix, accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder, StandardScaler
-from tensorflow.python.keras.layers import Dense
-from tensorflow.python.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.models import Sequential
 
 dataset = pd.read_csv('Churn_Modelling.csv')
 X = dataset.iloc[:, 3:-1].values
